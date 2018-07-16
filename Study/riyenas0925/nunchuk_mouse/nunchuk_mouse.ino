@@ -3,6 +3,10 @@
 
 #define NUNCHUK_ADDRESS 0x52
 
+int range = 10;
+int threshold = range / 4;
+int center = range / 2;
+ 
 int nunchuk_data[6];
 
 int nunchuk_read(){
@@ -47,6 +51,20 @@ int nunchuk_joystickY() {
   return nunchuk_data[1];
 }
 
+int move_joystick(int thisAxis){
+  int reading = thisAxis;
+
+  reading = map(reading, 0, 256, 0, range);
+
+  int distance = reading - center;
+
+  if(abs(distance) < threshold) {
+    distance = 0;
+  }
+  
+  return distance;
+}
+
 void setup() {
   Serial.begin(9600);
   Mouse.begin();
@@ -67,6 +85,8 @@ void loop() {
       Mouse.release(MOUSE_LEFT);
       Mouse.release(MOUSE_RIGHT);
     }
+
+    Mouse.move(move_joystick(nunchuk_joystickX()), -1 * move_joystick(nunchuk_joystickY()));
   }
   delay(10);
 }
