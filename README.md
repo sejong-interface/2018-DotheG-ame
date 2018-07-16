@@ -1,5 +1,5 @@
 # Battle_DotheG
-##### 2018 인터페이스 프로그래밍 전시회 - 도지마루
+##### 2018 인터페이스 프로그래밍 전시회
 
 ## **팀원**
 ***
@@ -12,8 +12,9 @@
 
 ## **개발**
 ***
-* 유니티
+* Unity
 * 
+
 
 ## **게임 빌딩**
 ***
@@ -22,7 +23,7 @@
 * 기존 두더지게임과 동일
 * 사용자는 이동하지 않음
 * 두더지가 정해진 구멍에서 나오는 것이 아니라 땅에서 랜덤으로 나옴 (360도)
-* 컨트롤러(or 키보드)를 이용해 두더지를 총으로 쏘는 FPS 게임
+* 컨트롤러를 이용해 두더지를 총으로 쏘는 VR FPS 게임
 * 사용자의 HP가 0이 될 때 게임오버
 * 플레이 점수 환산
     
@@ -35,10 +36,10 @@
     * 사용자의 HP가 닳음 > 0이 되면 게임 오버
 
 * 너프 몹
-~~(너프를 어떻게 먹일지 구상 중)~~
-    * 사람?
     * 암흑모드 / 지진 중 랜덤
-    * 암흑모드 : 밖으로 나와있는 몹들의 발자국만 빛내서 보여줌
+    * 암흑모드
+        * 문어몹에 공격을 가했을 때 실행함
+        * 밖으로 나와있는 몹들의 발자국만 빛내서 보여줌
     * 지진 : 화면이 강하게 흔들림
 
 * 버프 몹
@@ -86,4 +87,9 @@
 ### **6. 그래픽 레퍼런스**
 
 * low poly
-* https://assetstore.unity.com/packages/3d/vegetation/trees/low-poly-trees-pack-73954
+
+### **7. 에셋스토어**
+* environment
+    * low poly - trees   https://assetstore.unity.com/packages/3d/vegetation/trees/low-poly-trees-pack-73954
+    * low poly - modular https://assetstore.unity.com/packages/3d/environments/low-poly-modular-terrain-pack-91558
+    * low poly - rocks https://assetstore.unity.com/packages/3d/environments/low-poly-rocks-pack-70164
