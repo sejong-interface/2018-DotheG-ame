@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <Mouse.h>
 
 #define NUNCHUK_ADDRESS 0x52
 
@@ -32,34 +33,41 @@ void nunchuk_init(){
 }
 
 int nunchuk_buttonZ() {
-    return (~nunchuk_data[5] >> 0) & 1;
+   return (~nunchuk_data[5] >> 0) & 1;
 }
 
 int  nunchuk_buttonC() {
-    return (~nunchuk_data[5] >> 1) & 1;
+   return (~nunchuk_data[5] >> 1) & 1;
 }
 
 int nunchuk_joystickX_raw() {
-    return nunchuk_data[0];
+   return nunchuk_data[0];
 }
 
 int nunchuk_joystickY_raw() {
-    return nunchuk_data[1];
+   return nunchuk_data[1];
 }
 
 void setup() {
-    Serial.begin(9600);
-    nunchuk_init();
+   Serial.begin(9600);
+   Mouse.begin();
+   nunchuk_init();
 }
 
-void loop() {
-    if (nunchuk_read()) {
-        Serial.print(nunchuk_buttonZ());
-        Serial.print(nunchuk_buttonC());
-        Serial.print("  ");
-        Serial.print(nunchuk_joystickX_raw());
-        Serial.print("  ");
-        Serial.println(nunchuk_joystickY_raw());
+void loop() {   
+  if(nunchuk_read()){
+    if (nunchuk_buttonZ() == HIGH) {
+      Mouse.press(MOUSE_LEFT);
     }
-    delay(10);
+
+    else if(nunchuk_buttonC() == HIGH) {
+      Mouse.press(MOUSE_RIGHT);
+    }
+    
+    else {
+      Mouse.release(MOUSE_LEFT);
+      Mouse.release(MOUSE_RIGHT);
+    }
+  }
+   delay(10);
 }
