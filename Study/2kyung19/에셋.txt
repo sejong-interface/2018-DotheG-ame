@@ -1,0 +1,24 @@
+에셋스토어
+
+-로우폴리 환경 팩
+https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479
+
+-불꽃 팩
+https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-73777
+
+-로우폴리 하늘
+https://assetstore.unity.com/packages/vfx/shaders/free-skybox-cubemap-extended-107400
+
+-로우폴리 나무
+https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208
+
+-로우폴리 물효과
+https://assetstore.unity.com/packages/vfx/shaders/water-effect-fits-for-lowpoly-style-87810
+
+-로우폴리 바다
+https://assetstore.unity.com/packages/tools/particles-effects/lowpoly-water-107563
+
+-로우폴리 팩
+https://assetstore.unity.com/packages/3d/environments/low-poly-pack-94605
+
+
