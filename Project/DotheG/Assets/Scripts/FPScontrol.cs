@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//테스트 주석
+
 public class FPScontrol : MonoBehaviour {
     public float moveSpeed = 5.0f;
     public float rotSpeed = 3.0f;
