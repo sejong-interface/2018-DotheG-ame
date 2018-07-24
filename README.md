@@ -14,6 +14,7 @@
 ## **개발**
 ***
 * Unity
+* Blender
 * 
 
 
@@ -66,12 +67,15 @@
     * 몹의 개체수 상승, 땅에서 나오는 시간 감소, 몹의 걸음 속도 증가
 
 ### **4. 총**
-* 기본 : m4 같은 류 연사 가능 총 (탄창 60발)
-* 피버타임 : 
-    * m249 같은 기관총 (탄창 무한)
-    * ~~오버워치 파라 총 같은 대포탄 (탄창 무한)~~
+* 기본 : 도라에몽 공기총 ( 게이지 채움 > 게이지와 공격력 + 공격범위 비례 )
+* 피버타임 : ( 추후 아이디어 )
 
-### **5. 그래픽 및 인터페이스**
+### **5. 사용자**
+* 1인칭 모드 / 3인칭 모드 (단순 카메라 위치 변경)
+* 에임 적용
+* 디자인 레퍼런스 : 갱비스트
+
+### **6. 그래픽 및 인터페이스**
 * 테마
     * 테마 ( 숲 , 눈 , 사막 등 ) 랜덤
     * 테마에 따라 몹 또한 두더지, 펭귄, 전갈 등으로 출현 함
@@ -85,12 +89,27 @@
     * 몹 나오기 전 해당 구역에 원이 점점 줄어드는 효과
 
 
-### **6. 그래픽 레퍼런스**
+### **7. 총 디자인 레퍼런스**
 
 * low poly
 
-### **7. 에셋스토어**
-* environment
-    * low poly - trees   https://assetstore.unity.com/packages/3d/vegetation/trees/low-poly-trees-pack-73954
-    * low poly - modular https://assetstore.unity.com/packages/3d/environments/low-poly-modular-terrain-pack-91558
-    * low poly - rocks https://assetstore.unity.com/packages/3d/environments/low-poly-rocks-pack-70164
+### **7. Assets**
+
+* low-poly environment (free)
+* low-poly sky (free)
+* 
+
+
+### **8. 개발 진행 상황**
+* 첫 회의 (kakaotalk)
+    * 게임 빌딩
+    
+* 20180716 회의 (discord)
+    * 개발 진행 순서
+    * 사용 프로그램
+    * 게임 아이디어 추가
+
+* 20180724 회의 (discord)
+    * 역할 분담 (모델링-blender /ui-unity )
+    * 객체 디자인
+    * 게임 아이디어 추가
