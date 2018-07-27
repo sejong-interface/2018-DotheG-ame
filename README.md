@@ -96,8 +96,9 @@
 ### **7. Assets**
 
 * low-poly environment (free)
+    https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479
 * low-poly sky (free)
-* 
+
 
 
 ### **8. 팀 회의**
@@ -113,3 +114,33 @@
     * 역할 분담 (모델링-blender /ui-unity )
     * 객체 디자인
     * 게임 아이디어 추가
+
+
+### **9. 참고 자료**
+* **Unity**
+    * 유니티 기초 강좌
+
+        https://www.youtube.com/watch?v=POqq6P4Iz3Y&index=1&list=PLRx0vPvlEmdAfwnKLSdcKUCwZHWcv1aVc
+
+    * FPS 에셋과 1인칭 시점 변경
+
+        https://www.youtube.com/watch?v=3HSexCZqEFk
+
+    
+* **Blender**
+    * 블랜더 기초
+
+        https://www.youtube.com/watch?v=6aiqldSs6Kw&list=PL1vQPediXkoiLgw4C_TZzHHk8q_y-qGoi
+
+    *  simple rigging
+
+        https://www.youtube.com/watch?v=cp1YRaTZBfw
+
+    * modeling > rigging > animation
+
+        https://www.youtube.com/watch?v=DiIoWrOlIRw&list=PLFt_AvWsXl0fEx02iXR8uhDsVGhmM9Pse
+
+* **SourceTree**
+    * 브랜치 사용법 (재생목록 - Git 강좌)
+
+        https://www.youtube.com/watch?v=_3poHPrbnsE&index=13&list=PLuHgQVnccGMCB06JE7zFIAOJtdcZBVrap
