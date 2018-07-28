@@ -96,7 +96,9 @@
 ### **7. Assets**
 
 * low-poly environment (free)
+
     https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-environment-pack-99479
+    
 * low-poly sky (free)
 
 
@@ -139,6 +141,10 @@
     * modeling > rigging > animation
 
         https://www.youtube.com/watch?v=DiIoWrOlIRw&list=PLFt_AvWsXl0fEx02iXR8uhDsVGhmM9Pse
+
+    * 블렌더 애니메이팅 기초
+
+        https://www.youtube.com/watch?v=afN6V1MXAz8&list=PLxS3-QeYRcNPZSQvtqRPWlMsn2dlE0TXl
 
 * **SourceTree**
     * 브랜치 사용법 (재생목록 - Git 강좌)
