@@ -105,28 +105,32 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 		//Disable the light flash at start
 		Components.lightFlash.GetComponent<Light> ().enabled = false;
 	}
-	
+
 	void Update () {
 
 		//Check which animation 
 		//is currently playing
 		AnimationCheck ();
-
+		
+		if (GameObject.Find("GameManager").GetComponent<ESCPanel>().IsPause){
+			//ESC메뉴 활성화 중일때 공격 불가
+		}
 		//Left click hold to fire
-		if (Input.GetMouseButton (0)
+		else if (Input.GetMouseButton (0)){
 			//Disable shooting while running and jumping
-		    && !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
-			//Shoot automatic
-			if (Time.time - lastFired > 1 / fireRate) {
-				Shoot ();
-				lastFired = Time.time;
+		    if (!isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
+				//Shoot automatic
+				if (Time.time - lastFired > 1 / fireRate) {
+					Shoot ();
+					lastFired = Time.time;
 
-                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+                	GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 80;
+                	bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 80;
 
-                Destroy(bullet, 2.0f);
-            }
+                	Destroy(bullet, 2.0f);
+            	}
+			}
 		}
 
 		//Right click hold to aim

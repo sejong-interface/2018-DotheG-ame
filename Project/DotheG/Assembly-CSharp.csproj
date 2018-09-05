@@ -106,10 +106,10 @@
      <Compile Include="Assets\Scripts\CloudMove1.cs" />
      <Compile Include="Assets\Scripts\CloudMove2.cs" />
      <Compile Include="Assets\Scripts\CloudMove3.cs" />
+     <Compile Include="Assets\Scripts\ESCPanel.cs" />
      <Compile Include="Assets\Scripts\FPSControl.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\MainControl.cs" />
-     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Play_button.cs" />
      <None Include="Assets\FPScontrol\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
