@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	void OnCollisionEnter(Collision other)
-	{
-		//충돌한 상대방에게 데미지를 주는 코드 작성
+    public float speed = 5000.0f;
 
-		
-		Destroy(gameObject);
-	}
+    void Start(){
+        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+    }
+
+    void Update() {
+
+    }
+
 }

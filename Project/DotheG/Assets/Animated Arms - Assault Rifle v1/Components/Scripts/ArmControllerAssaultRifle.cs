@@ -4,7 +4,10 @@ using System.Collections;
 public class ArmControllerAssaultRifle : MonoBehaviour {
 	
 	Animator anim;
-	
+
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
 	bool isReloading;
 	bool outOfAmmo;
 	
@@ -83,10 +86,6 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 	}
 	public audioClips AudioClips;
 
-
-    public GameObject bulletPrefab;
-
-    public Transform bulletSpawn;
 
 
     void Awake () {
@@ -211,7 +210,12 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 			anim.Play ("Fire");
 		} else {
 			anim.SetTrigger("Shoot");
-		}
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward*6;
+
+            Destroy(bullet, 2.0f);
+        }
 		
 		//Remove 1 bullet
 		currentAmmo -= 1;
