@@ -4,10 +4,7 @@ using System.Collections;
 public class ArmControllerAssaultRifle : MonoBehaviour {
 	
 	Animator anim;
-
-    public GameObject bulletPrefab;
-    public Transform bulletSpawn;
-
+	
 	bool isReloading;
 	bool outOfAmmo;
 	
@@ -85,10 +82,8 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 		public AudioClip reloadSound;
 	}
 	public audioClips AudioClips;
-
-
-
-    void Awake () {
+	
+	void Awake () {
 		
 		//Set the animator component
 		anim = GetComponent<Animator>();
@@ -104,32 +99,21 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 		//Disable the light flash at start
 		Components.lightFlash.GetComponent<Light> ().enabled = false;
 	}
-    int speed = 5000;
+	
 	void Update () {
 
 		//Check which animation 
 		//is currently playing
 		AnimationCheck ();
-		
-		if (GameObject.Find("GameManager").GetComponent<ESCPanel>().IsPause){
-			//ESC메뉴 활성화 중일때 공격 불가
-		}
+
 		//Left click hold to fire
-		else if (Input.GetMouseButton (0)){
+		if (Input.GetMouseButton (0)
 			//Disable shooting while running and jumping
-		    if (!isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
-				//Shoot automatic
-				if (Time.time - lastFired > 1 / fireRate) {
-					Shoot ();
-					lastFired = Time.time;
-
-                	GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-
-                    float fMove = Time.deltaTime * speed;
-                	bullet.transform.Translate(Vector3.forward * fMove);
-
-                	Destroy(bullet, 2.0f);
-            	}
+		    && !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
+			//Shoot automatic
+			if (Time.time - lastFired > 1 / fireRate) {
+				Shoot ();
+				lastFired = Time.time;
 			}
 		}
 
@@ -168,7 +152,7 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 		} else if (currentAmmo > 0) {
 			outOfAmmo = false;
 		}
-    }
+	}
 
 	//Muzzleflash
 	IEnumerator MuzzleFlash () {
@@ -211,12 +195,7 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 			anim.Play ("Fire");
 		} else {
 			anim.SetTrigger("Shoot");
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward*6;
-
-            Destroy(bullet, 2.0f);
-        }
+		}
 		
 		//Remove 1 bullet
 		currentAmmo -= 1;
