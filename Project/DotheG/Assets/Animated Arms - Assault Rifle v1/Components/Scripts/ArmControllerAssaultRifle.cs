@@ -104,7 +104,7 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 		//Disable the light flash at start
 		Components.lightFlash.GetComponent<Light> ().enabled = false;
 	}
-
+    int speed = 5000;
 	void Update () {
 
 		//Check which animation 
@@ -125,7 +125,8 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
 
                 	GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-                	bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 80;
+                    float fMove = Time.deltaTime * speed;
+                	bullet.transform.Translate(Vector3.forward * fMove);
 
                 	Destroy(bullet, 2.0f);
             	}
