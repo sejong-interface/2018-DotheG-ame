@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Play_button : MonoBehaviour {
 
-    void Awake()
-    {
+    void Start(){
+    }
+
+    void Update(){
+        Cursor.lockState=CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void StartButton() {
