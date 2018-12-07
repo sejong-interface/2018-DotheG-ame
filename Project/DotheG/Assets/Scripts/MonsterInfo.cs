@@ -16,6 +16,10 @@ public class MonsterInfo : MonoBehaviour {
 		if (cnt==max_cnt){
 			Destroy(this.gameObject);
 		}
+		if (gameObject.transform.position.y<98){}
+		if (this.transform.position.y<95){
+			Destroy(this.gameObject);
+		}
 	}
 
 	private void OnCollisionEnter(Collision other) {

@@ -112,6 +112,7 @@
      <Compile Include="Assets\Scripts\game_manager.cs" />
      <Compile Include="Assets\Scripts\GameOverPanel.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\homeMove.cs" />
      <Compile Include="Assets\Scripts\MainControl.cs" />
      <Compile Include="Assets\Scripts\MonsterInfo.cs" />
      <Compile Include="Assets\Scripts\Play_button.cs" />
