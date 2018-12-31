@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterInfo : MonoBehaviour {
 	private int cnt;
 	public int max_cnt=0;
+	public int plusPoint=100;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,8 @@ public class MonsterInfo : MonoBehaviour {
 	void Update () {
 		if (cnt==max_cnt){
 			Destroy(this.gameObject);
+			GameObject.Find("GameManager").GetComponent<ScoreManager>().plusScore(plusPoint);
 		}
-		if (gameObject.transform.position.y<98){}
 		if (this.transform.position.y<95){
 			Destroy(this.gameObject);
 		}
