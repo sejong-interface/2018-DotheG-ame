@@ -4,7 +4,7 @@ using System.Collections;
 public class ArmControllerAssaultRifle : MonoBehaviour {
    
    Animator anim;
-   
+    UIManager ammoTx;
    bool isReloading;
    bool outOfAmmo;
    
@@ -13,16 +13,13 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
    bool isAiming;
    bool isRunning;
    bool isJumping;
+
+    GenerateMonster feverTimeAmmo;
     
     //총알 발사 스크립트
     public GameObject bulletFactory; //총알이 생성되는 장소
     public Transform firePosition; // 총알을 생성하여 위치 시키는 장소
 
-    //몹 자동생성
-    public Transform randomT;
-    public GameObject monster1;
-    public GameObject monster2;
-    public GameObject monster3;
 
     public int cnt = 0;
 
@@ -97,10 +94,16 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
    public audioClips AudioClips;
    
    void Awake () {
-      
+
+        feverTimeAmmo = GameObject.Find("GameManager").GetComponent<GenerateMonster>();
       //Set the animator component
       anim = GetComponent<Animator>();
-      
+
+      //Set the ammoText  
+      ammoTx = GameObject.Find("GameManager").GetComponent<UIManager>();
+
+
+
       //Set the ammo count
       RefillAmmo ();
 
@@ -140,12 +143,17 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
       }
          
       //R key to reload
-      if (Input.GetKeyDown (KeyCode.R) && !isReloading) {
+      if (!feverTimeAmmo.isFeverTime && Input.GetKeyDown (KeyCode.R) && !isReloading) {
          Reload ();
       }
-      
-      //Run when holding down left shift and moving
-      if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0) {
+
+        if (feverTimeAmmo.isFeverTime)
+        {
+            currentAmmo = AmmoSettings.ammo;
+        }
+
+        //Run when holding down left shift and moving
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0) {
          anim.SetFloat("Run", 0.2f);
       } else {
          //Stop running
@@ -220,7 +228,11 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
         //bullet.GetComponent<Transform>().rotation = new Quaternion(0, 0, 0, 0);
 
         //Remove 1 bullet
-        currentAmmo -= 1;
+
+        if (!feverTimeAmmo.isFeverTime) {
+            currentAmmo -= 1;
+        }
+        ammoTx.ammoText.text = currentAmmo.ToString();
       
       //Play shoot sound
       AudioClips.mainAudioSource.clip = AudioClips.shootSound;
@@ -234,31 +246,14 @@ public class ArmControllerAssaultRifle : MonoBehaviour {
       //Show the muzzleflash
       StartCoroutine (MuzzleFlash ());
 
-      //몹 생성
-        cnt++;
-        
-        if (cnt== 6)
-        {
-          randomT.position = new Vector3((3+Random.Range(0, 6))*Random.Range(-1,1), 110, Random.Range(-1,1)*(Random.Range(0, 6)+4));
-          Instantiate(monster1, randomT.position, randomT.rotation);
-        }
-        else if (cnt == 12)
-        {
-          randomT.position = new Vector3((3+Random.Range(0, 6))*Random.Range(-1,1), 110, Random.Range(-1,1)*(Random.Range(0, 6)+4));
-          Instantiate(monster2, randomT.position, randomT.rotation);
-        }
-        else if (cnt == 18)
-        { 
-          randomT.position = new Vector3((3+Random.Range(0, 6))*Random.Range(-1,1), 110, Random.Range(-1,1)*(Random.Range(0, 6)+4));
-          Instantiate(monster3, randomT.position, randomT.rotation);
-          cnt=0;  
-        }
+      
    }
    
    //Refill ammo
-   void RefillAmmo () {
+   public void RefillAmmo () {
       //Set the ammo
       currentAmmo = AmmoSettings.ammo;
+        ammoTx.ammoText.text = currentAmmo.ToString();
    }
    
    //Reload

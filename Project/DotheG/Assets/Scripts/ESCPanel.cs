@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 public class ESCPanel : MonoBehaviour {
 	private GameObject escMenu;
 	public bool IsPause;
+	GameOverPanel gameOverPanel;
 	private GameObject gameOverMenu;
 
 	void Awake(){
-		IsPause=false;
+		gameOverPanel = this.gameObject.GetComponent<GameOverPanel>();
+		Debug.Log(gameOverPanel.IsGameOver);
+		IsPause =false;
 		escMenu=GameObject.Find("Canvas").transform.Find("ESCPanel").gameObject;
 		gameOverMenu=GameObject.Find("Canvas").transform.Find("GameOver").gameObject;
 	}
 
 	void Update() {
-		if (gameOverMenu.activeSelf==false){//&&escMenu.activeSelf==false){
+		if (!gameOverPanel.IsGameOver){
+
 			if (Input.GetKeyDown(KeyCode.Escape)){
 				SetPause();
 			}
@@ -30,7 +34,7 @@ public class ESCPanel : MonoBehaviour {
 			Time.timeScale=1.0f;
 		}
 		IsPause=!IsPause;
-		escMenu.SetActive(IsPause);
+		if(!gameOverPanel.IsGameOver)escMenu.SetActive(IsPause);
 	}
 
 	public void ContinueBt(){
